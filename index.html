@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leocyte | Strategic Architect for Life Sciences</title>
-    <meta name="description" content="Bridging the gap between scientific vision and industrial realization. Strategic advisory for the biopharma ecosystem.">
+    <meta name="description" content="Leocyte consultants average 20-30 years of industry experience, bridging the gap between scientific innovation and industrial scale.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE VARIABLES & RESET --- */
+        /* --- CORE STYLES --- */
         :root {
             --color-bg: #FFFFFF;
-            --color-bg-alt: #F4F7F9; /* Clinical light gray */
-            --color-text-main: #1A202C; /* Deep Charcoal */
+            --color-bg-alt: #F4F7F9;
+            --color-text-main: #1A202C;
             --color-text-muted: #64748B;
-            --color-accent: #0052FF; /* Scientific Blue */
-            --color-accent-hover: #0039b3;
+            --color-accent: #0052FF;
             --color-border: #E2E8F0;
             --color-dark: #0F172A;
-            
             --font-display: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
-            
-            --container-width: 1280px;
             --nav-height: 80px;
-            
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-img: 20px; /* Round Edges for Images */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,732 +32,392 @@
             font-family: var(--font-body);
             background-color: var(--color-bg);
             color: var(--color-text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-dark); }
-        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
+        h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 700; color: var(--color-dark); line-height: 1.2; }
+        h2 { font-size: 36px; margin-bottom: 20px; }
+        h3 { font-size: 24px; margin-bottom: 15px; }
+        p { margin-bottom: 16px; color: var(--color-text-muted); }
+        ul { margin-bottom: 16px; padding-left: 20px; color: var(--color-text-muted); }
+        li { margin-bottom: 8px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* Utility Classes */
-        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 80px 0; }
+        .bg-alt { background-color: var(--color-bg-alt); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        
+        /* --- BUTTONS --- */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 16px 32px;
-            background-color: var(--color-dark);
-            color: white;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            border: 1px solid var(--color-dark);
-            cursor: pointer;
-            transition: var(--transition-smooth);
+            display: inline-block; padding: 14px 28px; background: var(--color-dark); color: white;
+            font-weight: 500; border-radius: 50px; border: 1px solid var(--color-dark); cursor: pointer;
         }
-        .btn:hover { background-color: var(--color-accent); border-color: var(--color-accent); }
-        .btn-outline { background: transparent; color: var(--color-dark); border: 1px solid var(--color-border); }
-        .btn-outline:hover { border-color: var(--color-dark); }
-        .section-padding { padding: 100px 0; }
-        .text-accent { color: var(--color-accent); }
-        
-        /* --- 2. NAVIGATION --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--color-border);
-        }
+        .btn:hover { background: var(--color-accent); border-color: var(--color-accent); }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
-
-        .logo {
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo span { color: var(--color-accent); }
-
-        .nav-links { display: flex; gap: 40px; }
-        .nav-item { 
-            font-size: 14px; 
-            font-weight: 500; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            cursor: pointer;
+        /* --- IMAGES (FLOATING & ROUND) --- */
+        .img-container {
             position: relative;
-        }
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-accent);
-            transition: var(--transition-smooth);
-        }
-        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
-
-        .mobile-toggle { display: none; cursor: pointer; }
-
-        /* --- 3. SPA LAYOUT LOGIC --- */
-        .page-section {
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.6s ease-out;
-            min-height: 100vh;
-            padding-top: var(--nav-height);
-        }
-        .page-section.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- 4. HOMEPAGE HERO --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(circle at 70% 30%, #f0f4ff 0%, #ffffff 60%);
+            border-radius: var(--radius-img);
             overflow: hidden;
-        }
-
-        .hero-bg-abstract {
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: 0;
-            opacity: 0.05;
-            background-image: linear-gradient(var(--color-text-main) 1px, transparent 1px),
-            linear-gradient(90deg, var(--color-text-main) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 5vw, 72px);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: var(--color-text-muted);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .ticker-wrap {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-            padding: 20px 0;
-            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        .ticker {
-            display: flex;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-        }
-
-        .ticker-item {
-            padding: 0 40px;
-            color: var(--color-text-muted);
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* --- 5. SERVICES (Two-Tier Sidebar) --- */
-        .services-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-            min-height: 80vh;
-        }
-
-        .service-sidebar {
-            border-right: 1px solid var(--color-border);
-            padding-right: 20px;
-        }
-
-        .service-tab {
+        .img-container img {
+            width: 100%;
+            height: auto;
             display: block;
-            padding: 20px 0;
-            font-family: var(--font-display);
-            font-size: 24px;
-            color: var(--color-text-muted);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .service-tab:hover { color: var(--color-text-main); }
-        .service-tab.active-tab { 
-            color: var(--color-accent); 
-            padding-left: 10px;
-            border-left: 3px solid var(--color-accent);
-            border-bottom: 1px solid transparent;
-        }
-
-        .service-content-panel { display: none; }
-        .service-content-panel.active-panel { display: block; animation: fadeIn 0.4s ease-out; }
-
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: var(--color-bg-alt);
-            padding: 32px;
-            border: 1px solid transparent;
-            transition: var(--transition-smooth);
-        }
-
-        .feature-card:hover {
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            transform: translateY(-5px);
-            border-color: var(--color-border);
+            transition: transform 0.5s ease;
         }
         
-        .feature-card h4 { margin-bottom: 12px; font-size: 20px; }
-        .feature-card p { font-size: 15px; color: var(--color-text-muted); margin-bottom: 20px; }
-        .card-link { font-size: 14px; font-weight: 600; color: var(--color-accent); display: flex; align-items: center; gap: 5px; }
+        .img-container:hover img { transform: scale(1.03); }
 
-        /* --- 6. EXPERT NETWORK --- */
-        .network-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 80px;
-            text-align: center;
+        /* Floating Effect Animation */
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
-        .stat-number { font-size: 64px; font-family: var(--font-display); color: var(--color-accent); line-height: 1; }
-        .stat-label { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
-
-        .expert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed; top: 0; width: 100%; height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            z-index: 1000; border-bottom: 1px solid var(--color-border);
         }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo { font-weight: 700; font-size: 24px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .nav-links span { margin-left: 30px; font-size: 14px; font-weight: 600; cursor: pointer; text-transform: uppercase; }
+        .nav-links span:hover { color: var(--color-accent); }
 
-        .expert-pill {
-            padding: 16px;
-            border: 1px solid var(--color-border);
-            text-align: center;
-            transition: var(--transition-smooth);
-            cursor: default;
+        /* --- SPA SECTIONS --- */
+        .page-section { display: none; padding-top: var(--nav-height); animation: fadeIn 0.5s; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- HERO --- */
+        .hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(to right, #f8fafc, #ffffff); }
+        .hero h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 20px; }
+        
+        /* --- SERVICES TABS --- */
+        .service-tabs { display: flex; border-bottom: 1px solid var(--color-border); margin-bottom: 40px; }
+        .tab-btn { padding: 15px 30px; cursor: pointer; font-family: var(--font-display); font-size: 18px; color: var(--color-text-muted); }
+        .tab-btn.active-tab { color: var(--color-accent); border-bottom: 3px solid var(--color-accent); }
+        .tab-content { display: none; }
+        .tab-content.active-content { display: block; animation: fadeIn 0.3s; }
+
+        /* --- CARDS --- */
+        .card { background: white; padding: 30px; border-radius: 12px; border: 1px solid var(--color-border); transition: 0.3s; }
+        .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: var(--color-accent); }
+
+        /* --- COOKIE BANNER --- */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--color-dark); color: white; padding: 20px;
+            z-index: 9999; display: none; /* Hidden by default, shown via JS */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
         }
-        .expert-pill:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(0, 82, 255, 0.05); }
+        .cookie-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .cookie-btn { background: var(--color-accent); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-left: 20px; }
 
-        /* --- 7. CONTACT FORM --- */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .form-group { margin-bottom: 24px; }
-        .form-label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500; }
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid var(--color-border);
-            font-family: var(--font-body);
-            font-size: 16px;
-            transition: var(--transition-smooth);
-            background: var(--color-bg-alt);
-        }
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            background: white;
-        }
-
-        /* --- 8. FOOTER --- */
-        footer { background: var(--color-dark); color: white; padding: 80px 0; margin-top: 80px; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
-        .footer h4 { color: white; margin-bottom: 24px; }
-        .footer-link { display: block; color: #94a3b8; margin-bottom: 12px; }
-        .footer-link:hover { color: white; }
-
-        /* --- 9. ANIMATIONS & UTILITIES --- */
-        .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
-
-        /* --- 10. MOBILE --- */
+        /* --- MOBILE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            .services-layout { grid-template-columns: 1fr; }
-            .service-sidebar { border-right: none; border-bottom: 1px solid var(--color-border); margin-bottom: 40px; display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px; }
-            .service-tab { padding: 10px 0; font-size: 18px; white-space: nowrap; border: none; opacity: 0.5; }
-            .service-tab.active-tab { opacity: 1; border-left: none; padding-left: 0; color: var(--color-accent); }
-            .contact-wrapper { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Simplify for this demo */
-            .mobile-toggle { display: block; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Hidden for simplicity in this file */
+            .service-tabs { overflow-x: auto; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container nav-container">
-            <div class="logo" onclick="navigateTo('home')">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#0052FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="#1A202C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="#1A202C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                LEOCYTE
+        <div class="container nav-inner">
+            <div class="logo" onclick="showSection('home')">
+                <span style="color: var(--color-accent);">●</span> LEOCYTE
             </div>
             <nav class="nav-links">
-                <span class="nav-item" onclick="navigateTo('services')">What We Do</span>
-                <span class="nav-item" onclick="navigateTo('expertise')">How We Work</span>
-                <span class="nav-item" onclick="navigateTo('about')">Who We Are</span>
-                <span class="nav-item" onclick="navigateTo('contact')">Contact</span>
+                <span onclick="showSection('services')">Capabilities</span>
+                <span onclick="showSection('work')">Case Studies</span>
+                <span onclick="showSection('about')">Our Team</span>
+                <span onclick="showSection('contact')">Contact</span>
             </nav>
-            <div class="mobile-toggle">Menu</div>
         </div>
     </header>
 
     <section id="home" class="page-section active">
         <div class="hero">
-            <div class="hero-bg-abstract"></div> <div class="container hero-content">
-                <h1 class="reveal-on-scroll">The Strategic Architect<br>for Life Sciences Innovation.</h1>
-                <p class="reveal-on-scroll">We bridge the gap between scientific vision and industrial realization. A global network of 250+ experts de-risking the journey from discovery to commercial leadership.</p>
-                
-                <span style="display:none"></span>
-
-                <div class="reveal-on-scroll" style="display: flex; gap: 16px;">
-                    <button class="btn" onclick="navigateTo('services')">Explore Our Capabilities</button>
-                    <button class="btn btn-outline" onclick="navigateTo('contact')">Schedule a Briefing</button>
+            <div class="container grid-2">
+                <div>
+                    <h1>Strategic Architect for Life Sciences Innovation</h1>
+                    <p style="font-size: 18px;">Forging Strategic Advantage at the Intersection of Scientific Innovation and Industrial Scale.</p>
+                    <p>Our consultants average 20-30 years of industry experience. We bridge the gap between pioneering biotechs and industrial capabilities.</p>
+                    <br>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn" onclick="showSection('services')">Our Services</button>
+                        <button class="btn" style="background: white; color: var(--color-dark); border: 1px solid var(--color-border);" onclick="showSection('contact')">Get in Touch</button>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="ticker-wrap">
-                <div class="ticker">
-                    <div class="ticker-item">Trusted by Innovation Leaders &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Harvard Medical School &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Pfizer &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Novartis &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">MIT Media Lab &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Vertex Pharmaceuticals &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">CRISPR Therapeutics &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Trusted by Innovation Leaders &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Harvard Medical School &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Pfizer &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Novartis &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">MIT Media Lab &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">Vertex Pharmaceuticals &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
-                    <div class="ticker-item">CRISPR Therapeutics &nbsp;&nbsp;&bull;&nbsp;&nbsp;</div>
+                <div class="img-container float-animation">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Leocyte Innovation">
                 </div>
             </div>
         </div>
-
+        
         <div class="container section-padding">
-            <div class="services-layout" style="grid-template-columns: 1fr 1fr 1fr; gap: 40px; min-height: auto;">
-                <div class="feature-card reveal-on-scroll">
-                    <h4 class="text-accent">Strategic Transactions</h4>
-                    <p>We architect high-stakes deals, from asset scouting and deep technical due diligence to sophisticated rNPV valuations and negotiation support.</p>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-trans');" class="card-link">Explore Transactions &rarr;</a>
-                </div>
-                <div class="feature-card reveal-on-scroll">
-                    <h4>Integrated Development</h4>
-                    <p>De-risking the path from bench to bedside. Our experts guide preclinical strategy, regulatory affairs (FDA/EMA), and CMC supply chains.</p>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-dev');" class="card-link">View Development Services &rarr;</a>
-                </div>
-                <div class="feature-card reveal-on-scroll">
-                    <h4>Commercial Strategy</h4>
-                    <p>Transforming scientific achievement into market success. We map opportunities, plan launches, and define market access strategies.</p>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-comm');" class="card-link">See Commercialization &rarr;</a>
-                </div>
+            <h2 style="text-align: center;">The Leocyte Tenet</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>In the high-stakes arena of life sciences, the path from a transformative idea to a commercially viable therapy is fraught with complexity. Success demands not only scientific brilliance but also strategic precision.</p>
+                <p>We operate at this critical nexus, serving as a strategic architect for the entire biopharma ecosystem.</p>
             </div>
         </div>
     </section>
 
     <section id="services" class="page-section">
         <div class="container section-padding">
-            <div class="reveal-on-scroll" style="margin-bottom: 60px;">
-                <h2>Our Capabilities</h2>
-                <p style="max-width: 600px; color: var(--color-text-muted);">Precision expertise tailored to the unique scientific and commercial contours of your engagement.</p>
+            <h2>Our Core Pillars</h2>
+            
+            <div class="service-tabs">
+                <div class="tab-btn active-tab" onclick="openTab('tab1', this)">Transactions & BD</div>
+                <div class="tab-btn" onclick="openTab('tab2', this)">Product Development</div>
+                <div class="tab-btn" onclick="openTab('tab3', this)">Strategy & Commercial</div>
             </div>
 
-            <div class="services-layout">
-                <div class="service-sidebar">
-                    <span class="service-tab active-tab" id="tab-trans" onclick="switchServiceTab('panel-trans', this)">Strategic Transactions</span>
-                    <span class="service-tab" id="tab-dev" onclick="switchServiceTab('panel-dev', this)">Integrated Development</span>
-                    <span class="service-tab" id="tab-comm" onclick="switchServiceTab('panel-comm', this)">Strategy & Commercialization</span>
-                </div>
-
-                <div id="panel-trans" class="service-content-panel active-panel">
-                    <h3>Forging Deals with Precision</h3>
-                    <p class="text-muted">We provide deep expertise on both buy-side and sell-side, ensuring decisions are taken with confidence.</p>
-                    
-                    <span style="display:none"></span>
-
-                    <div class="service-detail-grid">
-                        <div class="feature-card">
+            <div id="tab1" class="tab-content active-content">
+                <div class="grid-2">
+                    <div>
+                        <h3>Biotech & Pharma Business Development</h3>
+                        <p>We have deep experience on both the buy and sell-side. We ensure partnership, licensing, and investment decisions are taken with confidence.</p>
+                        
+                        <div class="card" style="margin-bottom: 20px;">
                             <h4>In-Licensing & Asset Scouting</h4>
-                            <p>Proactive, global reconnaissance beyond databases. [cite_start]We leverage our network to find assets not yet in the public domain. [cite: 49, 50, 60]</p>
+                            <p>We help companies and investors find new opportunities, accessing assets not yet in industry databases.</p>
                         </div>
-                        <div class="feature-card">
-                            <h4>Technical Due Diligence</h4>
-                            [cite_start]<p>Tailored teams for "red flag" assessments and deep technical interrogation of science and IP. [cite: 51, 123]</p>
+                        
+                        <div class="card" style="margin-bottom: 20px;">
+                            <h4>Due Diligence</h4>
+                            <p>Our 250-member network undertakes all aspects of technical, scientific, and opportunity due diligence.</p>
                         </div>
-                        <div class="feature-card">
-                            <h4>Valuations & Modeling</h4>
-                            [cite_start]<p>Proprietary rNPV models with Monte Carlo simulations to reveal tail-risk and realistic value ranges. [cite: 55, 181]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Deal Negotiation</h4>
-                            [cite_start]<p>End-to-end support from partnerability assessment to term sheet and contract negotiation. [cite: 53, 226]</p>
+
+                        <div class="card">
+                            <h4>Valuations (rNPV)</h4>
+                            <p>We reject single-number valuations. We use Monte Carlo simulations to accommodate real-world uncertainty.</p>
                         </div>
                     </div>
-                    
-                    <div style="margin-top: 40px; padding: 30px; background: #F0F4FF; border-left: 4px solid var(--color-accent);">
-                        <h4>Case Study: Scouting Hidden Assets</h4>
-                        [cite_start]<p style="font-size: 14px; margin-bottom: 0;">For a biotech focused on fibroblast biology, we conducted a global search identifying 25 new assets of high interest that had eluded internal efforts. [cite: 94, 100]</p>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Business Meeting">
                     </div>
                 </div>
-
-                <div id="panel-dev" class="service-content-panel">
-                    <h3>De-risking the Path to Market</h3>
-                    <p class="text-muted">From candidate selection to regulatory approval, we balance scientific rigor with strategic foresight.</p>
-                    
-                    <span style="display:none"></span>
-
-                    <div class="service-detail-grid">
-                        <div class="feature-card">
-                            <h4>Preclinical Strategy</h4>
-                            [cite_start]<p>Indication selection, TPP development, and IND-enabling study design. [cite: 261, 314]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Regulatory Affairs</h4>
-                            [cite_start]<p>Expert strategy for FDA/EMA, including Orphan, Breakthrough, and PRIME designations. [cite: 367, 390]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>CMC & Supply Chain</h4>
-                            [cite_start]<p>Manufacturing strategy for complex modalities (Cell/Gene) and global supply chain setup. [cite: 464, 486]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Clinical Operations</h4>
-                            [cite_start]<p>CRO selection, protocol design, and operational oversight to ensure efficient execution. [cite: 345, 356]</p>
-                        </div>
-                    </div>
-
-                     <div style="margin-top: 40px; padding: 30px; background: #F0F4FF; border-left: 4px solid var(--color-accent);">
-                        <h4>Case Study: Phase III Gene Therapy Diligence</h4>
-                        [cite_start]<p style="font-size: 14px; margin-bottom: 0;">Provided specialist manufacturing and regulatory DD for a PE investor bidding on a Phase III asset, utilizing ATMP experts. [cite: 141]</p>
-                    </div>
-                </div>
-
-                <div id="panel-comm" class="service-content-panel">
-                    <h3>Architecting Market Success</h3>
-                    <p class="text-muted">We equip companies to navigate the metamorphosis from R&D to a commercially capable enterprise.</p>
-
-                    <div class="service-detail-grid">
-                        <div class="feature-card">
-                            <h4>Opportunity Mapping</h4>
-                            [cite_start]<p>Validating drug discovery targets and prioritizing R&D programs based on commercial potential. [cite: 538]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>New Product Planning</h4>
-                            [cite_start]<p>Developing TPPs, patient journeys, and product value propositions. [cite: 582]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Launch Planning</h4>
-                            [cite_start]<p>End-to-end "Go-to-Market" roadmaps using our COMM-FIT readiness framework. [cite: 658, 683]</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Market Access</h4>
-                            [cite_start]<p>Payer landscape analysis, pricing strategy, and value dossiers for US/EU markets. [cite: 579]</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <div id="tab2" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <h3>Integrated Product Development</h3>
+                        <p>Whether your product is a small molecule or a biologic, Leocyte provides tailored assistance to plan and advance your program.</p>
+                        
+                        <ul style="margin-top: 20px;">
+                            <li><strong>Preclinical Strategy:</strong> Indication selection, TPP definition, and IND-enabling studies.</li>
+                            <li><strong>Regulatory Affairs:</strong> Strategy for FDA/EMA, Orphan Drug, PRIME, and Breakthrough designations.</li>
+                            <li><strong>CMC & Supply Chain:</strong> Manufacturing strategy for complex modalities like Cell & Gene therapy.</li>
+                            <li><strong>Clinical Operations:</strong> CRO selection and management.</li>
+                        </ul>
+                    </div>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755652?auto=format&fit=crop&w=800&q=80" alt="Lab Development">
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab3" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <h3>Strategy & Commercialization</h3>
+                        <p>In an era of value-based healthcare, a superior product is necessary but not sufficient. We architect market success.</p>
+                        
+                        <div class="card" style="margin-bottom: 20px;">
+                            <h4>Opportunity Mapping</h4>
+                            <p>Validating drug discovery targets and prioritizing R&D programs.</p>
+                        </div>
+                        
+                        <div class="card" style="margin-bottom: 20px;">
+                            <h4>New Product Planning</h4>
+                            <p>Developing Target Product Profiles (TPPs) and characterizing commercial opportunities.</p>
+                        </div>
+
+                        <div class="card">
+                            <h4>Launch Planning</h4>
+                            <p>End-to-end launch readiness support, including supply chain and commercial infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Strategy Chart">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="expertise" class="page-section">
+    <section id="work" class="page-section bg-alt">
         <div class="container section-padding">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto 80px auto;">
-                <h2 class="reveal-on-scroll">The Leocyte Advantage</h2>
-                <p class="reveal-on-scroll">We reject the generalist model. Our approach is built on precision expertise, deploying teams with surgical relevance to your challenge.</p>
-            </div>
+            <h2>Selected Case Studies</h2>
+            <div class="grid-3">
+                
+                <div class="card">
+                    <h4>In-licensing: Fibrosis & Oncology</h4>
+                    <p><strong>Challenge:</strong> Client sought biologics for inflammatory diseases via fibroblast mechanisms.</p>
+                    <p><strong>Solution:</strong> Leocyte identified ~25 new assets not previously known to the client using extensive network and literature search.</p>
+                </div>
 
-            <div class="network-stats reveal-on-scroll">
-                <div>
-                    <div class="stat-number">250+</div>
-                    <div class="stat-label">Global Expert Network</div>
+                <div class="card">
+                    <h4>Due Diligence: Gene Editing</h4>
+                    <p><strong>Challenge:</strong> Private biotech considering collaboration with a gene-editing company.</p>
+                    <p><strong>Solution:</strong> We provided an independent expert assessment of the platform technology to validate the partnership potential.</p>
                 </div>
-                <div>
-                    <div class="stat-number">25</div>
-                    <div class="stat-label">Avg. Years Experience</div>
-                </div>
-                <div>
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Products Commercialized</div>
-                </div>
-            </div>
 
-            <h3 style="margin-bottom: 30px;">Expertise by Modality & Disease</h3>
-            <span style="display:none"></span>
-            
-            <div class="expert-grid reveal-on-scroll">
-                <div class="expert-pill">Antibodies & ADCs</div>
-                <div class="expert-pill">Cell & Gene Therapy</div>
-                <div class="expert-pill">Small Molecules</div>
-                <div class="expert-pill">RNA/DNA Drugs</div>
-                <div class="expert-pill">Oncology</div>
-                <div class="expert-pill">Immunology</div>
-                <div class="expert-pill">CNS & Neurology</div>
-                <div class="expert-pill">Orphan Diseases</div>
-                <div class="expert-pill">Infectious Disease</div>
-                <div class="expert-pill">Cardiovascular</div>
+                <div class="card">
+                    <h4>Launch Planning: Immuno-Oncology</h4>
+                    <p><strong>Challenge:</strong> Accelerated launch required for a Breakthrough/PRIME designated asset.</p>
+                    <p><strong>Solution:</strong> Deployed COMM-FIT scale to assess readiness and created a short-term action plan to parallel-track commercial setup.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section id="about" class="page-section">
         <div class="container section-padding">
-            <div class="contact-wrapper">
+            <div class="grid-2">
                 <div>
-                    <h2>Leadership & Philosophy</h2>
-                    <br>
-                    <p>Leocyte operates at the critical nexus of scientific innovation and industrial scale. We are not a roster of distant advisors, but a curated ensemble of seasoned operators who have navigated the entire product lifecycle.</p>
-                    <br>
-                    <p><strong>Our Managing Partners:</strong></p>
-                    <ul style="margin-top: 20px;">
-                        <li style="margin-bottom: 15px;">
-                            <strong>Alastair Southwell</strong> - Managing Partner, US<br>
-                            <span class="text-muted">Leading strategic operations from Cambridge, MA.</span>
-                        </li>
-                        <li>
-                            <strong>Anthony Walker</strong> - Managing Partner, Europe<br>
-                            <span class="text-muted">Driving EU & Middle East engagements.</span>
-                        </li>
-                    </ul>
+                    <h2>Who We Are</h2>
+                    <p>Our core team works hand in hand with our Expert Network, which contains over 75 expert business development consultants and more than 250 high-caliber consultants in total.</p>
+                    <p>This allows us to provide precisely relevant expertise tailored to the specifics of each project, across a full range of product modalities.</p>
                 </div>
-                <div style="background: var(--color-bg-alt); padding: 40px; border-radius: 4px;">
-                    <h4>Our Tenet</h4>
-                    <br>
-                    <p><em>"Success demands not only scientific brilliance but also strategic precision. We serve as the strategic architect for the biopharma ecosystem, translating potential into value."</em></p>
-                    <br>
-                    <a href="#" onclick="navigateTo('contact')" class="btn">Join Our Expert Network</a>
+                <div class="img-container">
+                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration">
+                </div>
+            </div>
+
+            <div class="section-padding">
+                <h3>Leadership</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <h4>Alastair Southwell</h4>
+                        <p class="text-accent">Managing Partner, US</p>
+                        <p>Leading our US operations based in Cambridge, MA.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Anthony Walker</h4>
+                        <p class="text-accent">Managing Partner, Europe</p>
+                        <p>Overseeing Europe & Middle East strategy.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Saadia Anastasiou</h4>
+                        <p class="text-accent">Principal, UK</p>
+                        <p>Based at the London BioScience Innovation Centre.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="page-section">
+    <section id="contact" class="page-section bg-alt">
         <div class="container section-padding">
-            <h2 style="margin-bottom: 60px;">Start the Conversation</h2>
-            
-            <div class="contact-wrapper">
+            <h2>Contact Us</h2>
+            <div class="grid-2">
                 <div>
-                    <h4 style="margin-bottom: 20px;">Global Offices</h4>
-                    
-                    <div style="margin-bottom: 40px;">
-                        <h5 class="text-accent">Cambridge, MA (US)</h5>
-                        <p>One Broadway, Fl 14<br>Cambridge, MA 02142</p>
-                        <p style="margin-top: 10px;">+1 617-714-9696<br>asouthwell@Leocyte.com</p>
+                    <div style="margin-bottom: 30px;">
+                        <h3>US Office</h3>
+                        <p><strong>Alastair Southwell</strong><br>
+                        Cambridge Innovation Center<br>
+                        One Broadway, Fl 14<br>
+                        Cambridge, MA 02142<br>
+                        United States</p>
+                        <p>+1 617-714-9696<br>asouthwell@Leocyte.com</p>
                     </div>
 
                     <div>
-                        <h5 class="text-accent">London, UK (Europe)</h5>
-                        <p>London BioScience Innovation Centre<br>2 Royal College St, London NW1 0NH</p>
-                        <p style="margin-top: 10px;">+44 207 691 4915<br>sanastasiou@Leocyte.com</p>
+                        <h3>UK & Europe Office</h3>
+                        <p><strong>Saadia Anastasiou</strong><br>
+                        London BioScience Innovation Centre<br>
+                        2 Royal College St,<br>
+                        London, NW1 0NH<br>
+                        United Kingdom</p>
+                        <p>+44 207 691 4915<br>sanastasiou@Leocyte.com</p>
                     </div>
                 </div>
 
-                <div style="background: white; padding: 40px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                        <div class="form-group">
-                            <label class="form-label">I am interested in...</label>
-                            <select class="form-select" id="inquiryType">
-                                <option>Strategic Transactions / Due Diligence</option>
-                                <option>Product Development Support</option>
-                                <option>Commercial Strategy / Launch</option>
-                                <option>Joining the Expert Network</option>
-                            </select>
+                <div class="card">
+                    <h3>Send an Inquiry</h3>
+                    <form action="mailto:info@leocyte.com" method="post" enctype="text/plain">
+                        <div style="margin-bottom: 15px;">
+                            <label>Name</label>
+                            <input type="text" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Name</label>
-                            <input type="text" class="form-input" required placeholder="Dr. Jane Doe">
+                        <div style="margin-bottom: 15px;">
+                            <label>Email</label>
+                            <input type="email" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Organization</label>
-                            <input type="text" class="form-input" required placeholder="Company Name">
+                        <div style="margin-bottom: 15px;">
+                            <label>Message</label>
+                            <textarea rows="4" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-textarea" rows="4" placeholder="Briefly describe your challenge..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>LEOCYTE</h4>
-                    <p style="font-size: 14px; color: #94a3b8;">Strategic Architect for Life Sciences Innovation.</p>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-trans');" class="footer-link">Transactions</a>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-dev');" class="footer-link">Development</a>
-                    <a href="#" onclick="navigateTo('services'); activateTab('tab-comm');" class="footer-link">Commercialization</a>
-                </div>
-                <div>
-                    <h4>Legal</h4>
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Use</a>
-                    <a href="#" class="footer-link">Sitemap</a>
-                </div>
+    <div id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p style="color: white; margin: 0;">
+                    We use cookies to ensure you get the best experience on our website. 
+                    <a href="#" style="text-decoration: underline; color: #ccc;">Read our Privacy Policy</a>.
+                </p>
             </div>
-            <div style="margin-top: 60px; border-top: 1px solid #334155; padding-top: 20px; font-size: 12px; color: #64748B; text-align: center;">
-                &copy; 2024 Leocyte Consulting. All rights reserved.
-            </div>
+            <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
         </div>
-    </footer>
+    </div>
 
     <script>
-        // --- 1. SPA Navigation Handler ---
-        function navigateTo(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show target section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update Nav State
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            // Re-trigger animations for the new section
-            initObserver();
+        // SPA Navigation
+        function showSection(id) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        // --- 2. Services Tab Handler ---
-        function switchServiceTab(panelId, tabElement) {
-            // Hide all panels
-            document.querySelectorAll('.service-content-panel').forEach(panel => {
-                panel.classList.remove('active-panel');
-            });
-
-            // Deactivate all tabs
-            document.querySelectorAll('.service-tab').forEach(tab => {
-                tab.classList.remove('active-tab');
-            });
-
-            // Activate selected
-            document.getElementById(panelId).classList.add('active-panel');
-            tabElement.classList.add('active-tab');
-        }
-        
-        // Helper to link from homepage cards to specific tabs
-        function activateTab(tabId) {
-            const tab = document.getElementById(tabId);
-            if(tab) tab.click();
-        }
-
-        // --- 3. Intersection Observer for Fade-in Animations ---
-        function initObserver() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        // --- 4. Form Handler (Mailto generator) ---
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const inquiryType = document.getElementById('inquiryType').value;
-            const name = e.target.querySelector('input[type="text"]').value;
+        // Service Tabs Logic
+        function openTab(tabId, btn) {
+            // Hide all contents in that section
+            const parent = btn.parentElement.parentElement;
+            parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active-content'));
+            parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
             
-            // Logic to determine recipient based on inquiry logic (Simulated)
-            let email = "asouthwell@Leocyte.com"; // Default to US
-            
-            const subject = `Leocyte Web Inquiry: ${inquiryType} - ${name}`;
-            const body = `Name: ${name}%0D%0AInquiry: ${inquiryType}%0D%0AMessage: See details...`;
-            
-            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            // Show clicked
+            document.getElementById(tabId).classList.add('active-content');
+            btn.classList.add('active-tab');
         }
 
-        // Init
-        document.addEventListener('DOMContentLoaded', () => {
-            initObserver();
-            // Mobile Menu Toggle Logic (Simple implementation)
-            document.querySelector('.mobile-toggle').addEventListener('click', () => {
-                const nav = document.querySelector('.nav-links');
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                nav.style.flexDirection = 'column';
-                nav.style.position = 'absolute';
-                nav.style.top = '80px';
-                nav.style.left = '0';
-                nav.style.width = '100%';
-                nav.style.background = 'white';
-                nav.style.padding = '20px';
-                nav.style.borderBottom = '1px solid #e2e8f0';
-            });
+        // Cookie Logic
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('leocyte_cookies', 'accepted');
+        }
+
+        // Check Cookies on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            if(!localStorage.getItem('leocyte_cookies')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
         });
     </script>
+
 </body>
 </html>
