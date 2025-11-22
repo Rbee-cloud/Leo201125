@@ -6,7 +6,7 @@
     <title>Leocyte | Strategic Architect for Life Sciences</title>
     <meta name="description" content="Strategic Architect for Life Sciences Innovation. Precision expertise for high-stakes biotech transactions and development.">
     
-    <!-- Tailwind CSS (CDN for standalone usage) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
@@ -54,11 +54,9 @@
     </script>
 
     <style>
-        /* Custom Scrollbar Hiding */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Fade In Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -68,6 +66,10 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Modal Styles */
+        #bio-modal.open { display: flex; }
+        #bio-modal { display: none; }
     </style>
 <script type="importmap">
 {
@@ -130,7 +132,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-leocyte-dark">
-        <!-- Canvas Background -->
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
         
         <div class="relative z-10 container mx-auto px-6 text-center">
@@ -183,7 +184,7 @@
         </div>
     </section>
 
-    <!-- Services Section (Dynamic JS) -->
+    <!-- Services Section (Dynamic) -->
     <section id="services" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="mb-16 reveal">
@@ -192,25 +193,16 @@
             </div>
 
             <div class="flex flex-col lg:flex-row gap-12 h-full lg:min-h-[600px] reveal">
-                <!-- Sidebar -->
-                <div class="lg:w-1/4 flex flex-col space-y-2" id="services-nav">
-                    <!-- Buttons injected via JS -->
-                </div>
-
-                <!-- Content Area -->
+                <div class="lg:w-1/4 flex flex-col space-y-2" id="services-nav"></div>
                 <div class="lg:w-3/4 flex flex-col md:flex-row gap-8 bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-                    <div class="md:w-1/3 bg-slate-50 border-r border-slate-100 p-6" id="services-subnav">
-                        <!-- Subnav injected via JS -->
-                    </div>
-                    <div class="md:w-2/3 p-8 md:p-12 flex flex-col justify-center" id="services-content">
-                        <!-- Content injected via JS -->
-                    </div>
+                    <div class="md:w-1/3 bg-slate-50 border-r border-slate-100 p-6" id="services-subnav"></div>
+                    <div class="md:w-2/3 p-8 md:p-12 flex flex-col justify-center" id="services-content"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Methodology / Expertise -->
+    <!-- Expertise & Insights -->
     <section id="expertise" class="py-24 bg-leocyte-dark text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none"></div>
         <div class="container mx-auto px-6 relative z-10">
@@ -223,49 +215,26 @@
                     <div class="space-y-8">
                         <div class="flex">
                             <div class="flex-shrink-0 mt-1"><div class="w-8 h-8 rounded-full bg-leocyte-blue flex items-center justify-center text-xs font-bold">1</div></div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold mb-1">Scientific Interrogation</h4>
-                                <p class="text-sm text-slate-400">Deep-dive into MoA, translational medicine, and CMC challenges.</p>
-                            </div>
+                            <div class="ml-4"><h4 class="text-lg font-bold mb-1">Scientific Interrogation</h4><p class="text-sm text-slate-400">Deep-dive into MoA, translational medicine, and CMC challenges.</p></div>
                         </div>
                         <div class="flex">
                             <div class="flex-shrink-0 mt-1"><div class="w-8 h-8 rounded-full bg-leocyte-blue flex items-center justify-center text-xs font-bold">2</div></div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold mb-1">Industrial Context</h4>
-                                <p class="text-sm text-slate-400">Benchmarking against real-world manufacturing realities.</p>
-                            </div>
+                            <div class="ml-4"><h4 class="text-lg font-bold mb-1">Industrial Context</h4><p class="text-sm text-slate-400">Benchmarking against real-world manufacturing realities.</p></div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1"><div class="w-8 h-8 rounded-full bg-leocyte-blue flex items-center justify-center text-xs font-bold">3</div></div>
+                            <div class="ml-4"><h4 class="text-lg font-bold mb-1">Strategic Clarity</h4><p class="text-sm text-slate-400">Transforming ambiguity into actionable strategy.</p></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="md:w-2/3 reveal">
                     <div class="flex justify-between items-end mb-8 border-b border-white/10 pb-4">
-                        <h3 className="text-2xl font-serif">Insights & Perspectives</h3>
+                        <h3 class="text-2xl font-serif">Insights & Perspectives</h3>
+                        <span class="text-xs text-slate-400">* Click cards to download.</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Insight Cards -->
-                        <a href="assets/valuation-paper.pdf" class="group bg-white/5 border border-white/10 p-6 rounded hover:bg-white/10 transition-all cursor-pointer block">
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-leocyte-blue uppercase tracking-wider">Transactions</span>
-                                <i data-lucide="download" class="w-4 h-4 text-slate-500 group-hover:text-white"></i>
-                            </div>
-                            <h4 class="text-xl font-serif font-semibold mb-2 group-hover:text-leocyte-blue transition-colors">The Fallacy of the Single-Number Valuation</h4>
-                            <div class="flex items-center text-xs text-slate-500 mt-4">
-                                <span class="bg-white/10 px-2 py-1 rounded">White Paper</span>
-                            </div>
-                        </a>
-                         <a href="assets/regulatory-article.pdf" class="group bg-white/5 border border-white/10 p-6 rounded hover:bg-white/10 transition-all cursor-pointer block">
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-leocyte-blue uppercase tracking-wider">Regulatory</span>
-                                <i data-lucide="download" class="w-4 h-4 text-slate-500 group-hover:text-white"></i>
-                            </div>
-                            <h4 class="text-xl font-serif font-semibold mb-2 group-hover:text-leocyte-blue transition-colors">Navigating PRIME and Breakthrough Designations</h4>
-                            <div class="flex items-center text-xs text-slate-500 mt-4">
-                                <span class="bg-white/10 px-2 py-1 rounded">Article</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="mt-4 text-xs text-slate-500">* Click cards to download documents.</p>
+                    <!-- Dynamic Insights Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="insights-grid"></div>
                 </div>
             </div>
         </div>
@@ -277,56 +246,18 @@
             <h2 class="text-4xl md:text-5xl font-serif font-bold text-leocyte-dark mb-4">Leadership Team</h2>
             <p class="text-slate-600 max-w-xl mx-auto">Detailed bio-cards of the partners leading the convergence of science and strategy.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Expert 1 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-shadow animate-float reveal">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://picsum.photos/400/400?grayscale" alt="Elena Corves" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                    <div class="absolute bottom-0 left-0 p-6 text-white">
-                        <h3 class="text-xl font-bold font-serif">Dr. Elena Corves</h3>
-                        <p class="text-sm opacity-90">Managing Partner, Oncology</p>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Former SVP of Clinical Development at a Top 5 Pharma. Elena has led 12 successful NDA submissions in solid tumors.</p>
-                    <button class="text-leocyte-blue text-sm font-bold hover:underline">Read Full Bio</button>
-                </div>
-            </div>
-            <!-- Expert 2 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-shadow animate-float reveal" style="animation-delay: 1s;">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://picsum.photos/401/401?grayscale" alt="Marcus Thorne" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                    <div class="absolute bottom-0 left-0 p-6 text-white">
-                        <h3 class="text-xl font-bold font-serif">Marcus Thorne</h3>
-                        <p class="text-sm opacity-90">Partner, Transactions</p>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">25 years in Corporate Development. Marcus architected the $4B merger of Aris & Helix.</p>
-                    <button class="text-leocyte-blue text-sm font-bold hover:underline">Read Full Bio</button>
-                </div>
-            </div>
-            <!-- Expert 3 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-shadow animate-float reveal" style="animation-delay: 2s;">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://picsum.photos/402/402?grayscale" alt="Sarah Jin" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                    <div class="absolute bottom-0 left-0 p-6 text-white">
-                        <h3 class="text-xl font-bold font-serif">Sarah Jin, PhD</h3>
-                        <p class="text-sm opacity-90">Head of CMC</p>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">A world-renowned expert in viral vector manufacturing. Sarah solves the 'unsolvable' yield issues.</p>
-                    <button class="text-leocyte-blue text-sm font-bold hover:underline">Read Full Bio</button>
-                </div>
-            </div>
+        <!-- Dynamic Experts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="experts-grid"></div>
+        
+        <div class="mt-16 text-center reveal">
+            <p class="text-slate-500 mb-4">Are you a deep-domain expert with 20+ years experience?</p>
+            <a href="mailto:ab@leocyte.com?subject=Expert Network Application" class="inline-flex items-center text-leocyte-dark font-bold hover:text-leocyte-blue transition-colors">
+                Join the Expert Network <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </a>
         </div>
     </section>
 
-    <!-- Social Impact -->
+    <!-- Social Impact (Static as per request) -->
     <section id="impact" class="py-24 bg-white border-t border-slate-100">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-12 items-center reveal">
@@ -335,13 +266,15 @@
                         <i data-lucide="leaf" class="w-5 h-5"></i>
                         <span class="text-xs font-bold uppercase tracking-widest">Responsible Innovation</span>
                     </div>
+                    <!-- EDIT SOCIAL IMPACT TEXT BELOW -->
                     <h2 class="text-4xl font-serif font-bold text-leocyte-dark mb-6 leading-tight">Improving Lives, <br/> Nurturing the Planet</h2>
                     <p class="text-slate-600 text-lg leading-relaxed mb-6">
-                        At Leocyte, every breakthrough medicine we help bring to the world carries a promise. We also recognize that every action has a ripple effect.
+                        At Leocyte, every breakthrough medicine we help bring to the world carries a promise: to improve lives, to bring hope, and to make health more accessible for all. But we also recognize that every action has a ripple effect.
                     </p>
                     <p class="text-slate-600 leading-relaxed mb-8">
-                        That’s why we’ve committed to giving back. In Southern Europe, we’ve partnered with local communities to restore the <strong>Montado</strong>, a unique Mediterranean ecosystem. Through reforestation, we’re helping to absorb carbon and protect biodiversity.
+                        That’s why we’ve committed to giving back. In Southern Europe, we’ve partnered with local communities to restore the <strong>Montado</strong>, a unique Mediterranean ecosystem. Through reforestation, we’re helping to absorb carbon, protect biodiversity, and support sustainable livelihoods.
                     </p>
+                    <!-- END EDIT AREA -->
                 </div>
                 <div class="lg:w-1/2 relative h-96 w-full rounded-2xl overflow-hidden shadow-2xl animate-float">
                     <img src="https://picsum.photos/800/600?grayscale" alt="Nature" class="w-full h-full object-cover">
@@ -383,10 +316,7 @@
                 </div>
                 <div class="md:w-2/3 p-10">
                     <h3 class="text-lg font-bold text-leocyte-dark mb-6">Select Your Inquiry Type</h3>
-                    <!-- Inquiry Tabs -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" id="inquiry-types">
-                        <!-- Buttons generated by JS -->
-                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" id="inquiry-types"></div>
                     <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-2 gap-6">
                             <div class="space-y-1">
@@ -437,6 +367,16 @@
         </div>
     </footer>
 
+    <!-- Bio Modal -->
+    <div id="bio-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm items-center justify-center p-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transform translate-y-10 transition-transform duration-300">
+            <button onclick="closeBio()" class="absolute top-4 right-4 text-slate-400 hover:text-leocyte-dark z-10"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div id="bio-content" class="p-8 md:p-12">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="fixed bottom-4 left-4 md:left-8 max-w-md z-[70] hidden">
         <div class="bg-white/95 backdrop-blur-md border border-slate-200 p-6 shadow-2xl rounded-lg relative">
@@ -453,62 +393,163 @@
 
     <!-- Logic Script -->
     <script>
-        // --- DATA ---
+        // ==============================================
+        // ===  CONTENT DATA (EDIT HERE)  ===
+        // ==============================================
+
+        // 1. SERVICES & CASE STUDIES
         const servicesData = [
             {
                 id: 'transactions',
                 title: 'Strategic Transactions',
                 icon: 'layers',
-                caseStudy: { title: 'Global Asset Scout', summary: 'Identified 25 novel assets for a fibroblast biology biotech.' },
+                caseStudy: { 
+                    title: 'Global Asset Scout', 
+                    summary: 'Identified 25 novel assets for a fibroblast biology biotech through exhaustive network surveillance, fundamentally reshaping their pipeline.' 
+                },
                 subPages: [
-                    { title: 'Asset Scouting & In-Licensing', content: 'We go far beyond passive database mining. Our scouting is a disciplined, intelligence-driven process designed to uncover both visible and hidden opportunities.' },
-                    { title: 'Definitive Due Diligence', content: 'Our due diligence is distinguished by its tailored precision. We reject the one-size-fits-all approach, instead architecting bespoke teams.' },
-                    { title: 'Valuation & Deal Modeling', content: 'We believe a single-number valuation is a fallacy. Our approach embraces uncertainty using proprietary rNPV models.' },
-                    { title: 'Out-Licensing & Partnering', content: 'We manage the end-to-end partnering process, transforming assets into compelling investment stories.' }
+                    { 
+                        title: 'Asset Scouting & In-Licensing', 
+                        content: 'We go far beyond passive database mining. Our scouting is a disciplined, intelligence-driven process designed to uncover both visible and hidden opportunities. We leverage global reconnaissance and network-driven sourcing to identify assets long before they appear in industry databases.' 
+                    },
+                    { 
+                        title: 'Definitive Due Diligence', 
+                        content: 'Our due diligence is distinguished by its tailored precision. We reject the one-size-fits-all approach, instead architecting bespoke teams with the exact modality and therapeutic area expertise required. We deliver actionable risk dashboards, not just dense reports.' 
+                    },
+                    { 
+                        title: 'Valuation & Deal Modeling', 
+                        content: 'We believe a single-number valuation is a fallacy. Our approach embraces uncertainty using proprietary rNPV models and Monte Carlo simulations to generate probability-weighted ranges that reveal tail risks and drive negotiating leverage.' 
+                    },
+                    { 
+                        title: 'Out-Licensing & Partnering', 
+                        content: 'We manage the end-to-end partnering process, transforming assets into compelling investment stories. From partnerability assessments to secure data rooms and contract negotiation, we ensure alignment between deal structure and long-term value.' 
+                    }
                 ]
             },
             {
                 id: 'development',
                 title: 'Integrated Development',
                 icon: 'activity',
-                caseStudy: { title: 'Accelerated Oncology Pathway', summary: 'Designed a clinical development plan that shaved 14 months off time-to-market.' },
+                caseStudy: { 
+                    title: 'Accelerated Oncology Pathway', 
+                    summary: 'Designed a clinical development plan that shaved 14 months off the time-to-market for a novel antibody-drug conjugate.' 
+                },
                 subPages: [
-                    { title: 'Research & Preclinical Strategy', content: 'We inject commercial and strategic discipline into the earliest stages of development.' },
-                    { title: 'Clinical Strategy & Operations', content: 'Our seasoned pharmaceutical physicians ensure your clinical programs are efficient and executable.' },
-                    { title: 'Regulatory Affairs', content: 'Navigating the FDA and EMA requires insight into agency precedent.' },
-                    { title: 'CMC & Supply Chain', content: 'For complex therapeutics, the manufacturing process is the product.' }
+                    { 
+                        title: 'Research & Preclinical Strategy', 
+                        content: 'We inject commercial and strategic discipline into the earliest stages of development. Our services include indication selection, TPP development, and translational medicine plans that shape programs for maximum future value.' 
+                    },
+                    { 
+                        title: 'Clinical Strategy & Operations', 
+                        content: 'Our seasoned pharmaceutical physicians ensure your clinical programs are efficient and executable. We handle Clinical Development Plan (CDP) creation, protocol design, and CRO oversight to meet the needs of regulators and payers.' 
+                    },
+                    { 
+                        title: 'Regulatory Affairs', 
+                        content: 'Navigating the FDA and EMA requires insight into agency precedent. Our team includes ex-regulators who shepherd novel modalities through expedited pathways like Breakthrough and PRIME.' 
+                    },
+                    { 
+                        title: 'CMC & Supply Chain', 
+                        content: 'For complex therapeutics, the manufacturing process is the product. Our CMC experts ensure your supply chain is robust, scalable, and aligned with commercial ambitions, from CDMO selection to cGXP compliance.' 
+                    }
                 ]
             },
             {
                 id: 'commercial',
                 title: 'Commercial Strategy',
                 icon: 'trending-up',
-                caseStudy: { title: 'COMM-FIT Launch', summary: 'Identified critical bottlenecks and delivered a phased launch plan.' },
+                caseStudy: { 
+                    title: 'COMM-FIT Launch Transformation', 
+                    summary: 'For a pre-revenue biotech, we identified critical bottlenecks and delivered a phased launch plan that allowed parallel-tracking of activities.' 
+                },
                 subPages: [
-                    { title: 'Opportunity Mapping', content: 'Before a clinical trial is designed, commercial strategy must be set.' },
-                    { title: 'Launch Planning', content: 'A successful launch is a metamorphic event. We provide the master blueprint.' },
-                    { title: 'Market Access & Payers', content: 'Demonstrating economic value is as important as demonstrating efficacy.' }
+                    { 
+                        title: 'Opportunity Mapping', 
+                        content: 'Before a clinical trial is designed, commercial strategy must be set. We conduct early assessments and indication prioritization to ensure R&D resources focus on the most valuable opportunities.' 
+                    },
+                    { 
+                        title: 'Launch Planning', 
+                        content: 'A successful launch is a metamorphic event. Our COMM-FIT framework assesses fitness across all functions, providing a master blueprint for organizational design, forecasting, and data infrastructure.' 
+                    },
+                    { 
+                        title: 'Market Access & Payers', 
+                        content: 'In an era of value-based healthcare, demonstrating economic value is critical. We build evidence generation plans (HEOR) integrated into clinical development to ensure your value story is compelling from day one.' 
+                    }
                 ]
             }
         ];
 
+        // 2. LEADERSHIP TEAM (BIOS)
+        const expertsData = [
+            {
+                name: "Dr. Elena Corves",
+                role: "Managing Partner, Oncology",
+                shortBio: "Former SVP of Clinical Development at a Top 5 Pharma. Elena has led 12 successful NDA submissions in solid tumors.",
+                fullBio: "Dr. Elena Corves brings over 25 years of clinical development leadership. As Former SVP at a Top 5 Pharma, she oversaw the oncology portfolio, leading 12 successful NDA submissions. Her expertise lies in bridging the gap between translational science and Phase II proof-of-concept, ensuring that clinical trials are not just scientifically sound but commercially viable. She holds an MD from Harvard Medical School and a PhD in Immunology.", // <--- TYPE FULL BIO HERE
+                image: "https://picsum.photos/400/400?grayscale",
+                tags: ["Oncology", "Clinical Dev", "Regulatory"]
+            },
+            {
+                name: "Marcus Thorne",
+                role: "Partner, Transactions",
+                shortBio: "25 years in Corporate Development. Marcus architected the $4B merger of Aris & Helix.",
+                fullBio: "Marcus Thorne is a veteran dealmaker with over $30B in cumulative transaction value. He brings a physicist's precision to deal structuring and valuation modeling. Prior to Leocyte, Marcus served as Head of Corporate Development for a major biotech, where he architected the $4B merger of Aris & Helix. He specializes in creative deal structures that align incentives and mitigate long-term risk.", // <--- TYPE FULL BIO HERE
+                image: "https://picsum.photos/401/401?grayscale",
+                tags: ["M&A", "Licensing", "Strategy"]
+            },
+            {
+                name: "Sarah Jin, PhD",
+                role: "Head of CMC",
+                shortBio: "A world-renowned expert in viral vector manufacturing. Sarah solves the 'unsolvable' yield issues.",
+                fullBio: "Sarah Jin is recognized globally for her work in viral vector manufacturing. With a PhD in Chemical Engineering from MIT, she has spent two decades solving the 'unsolvable' yield issues that plague gene therapy startups. Sarah has designed commercial-scale facilities for three approved gene therapies and advises regulatory bodies on CMC standards for ATMPs.", // <--- TYPE FULL BIO HERE
+                image: "https://picsum.photos/402/402?grayscale",
+                tags: ["CMC", "Gene Therapy", "Supply Chain"]
+            }
+        ];
+
+        // 3. DOWNLOADABLE INSIGHTS
+        const insightsData = [
+            {
+                type: 'White Paper',
+                title: 'The Fallacy of the Single-Number Valuation',
+                topic: 'Transactions',
+                fileUrl: '#' // <--- CHANGE '#' TO YOUR FILE PATH (e.g., 'assets/valuation.pdf')
+            },
+            {
+                type: 'Article',
+                title: 'Navigating PRIME and Breakthrough Designations',
+                topic: 'Regulatory',
+                fileUrl: '#' // <--- CHANGE '#' TO YOUR FILE PATH
+            },
+            {
+                type: 'Case Study',
+                title: 'De-risking AAV Gene Therapy Supply Chains',
+                topic: 'CMC',
+                fileUrl: '#' // <--- CHANGE '#' TO YOUR FILE PATH
+            }
+        ];
+
         const inquiryTypes = ['Strategic Transactions', 'Product Development', 'Commercial Strategy', 'General Inquiry'];
+
+        // ==============================================
+        // ===  SYSTEM LOGIC (DO NOT EDIT BELOW)  ===
+        // ==============================================
+
         let activeServiceIdx = 0;
         let activeSubIdx = 0;
         let currentInquiry = 'General Inquiry';
 
-        // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             initNavbar();
             initServices();
+            initExperts();
+            initInsights();
             initCanvas();
             initScrollObserver();
             initContactForm();
             initCookieBanner();
         });
 
-        // --- SERVICES LOGIC ---
         function initServices() {
             const navContainer = document.getElementById('services-nav');
             const subnavContainer = document.getElementById('services-subnav');
@@ -517,7 +558,6 @@
             function render() {
                 const activeService = servicesData[activeServiceIdx];
                 
-                // Render Sidebar
                 navContainer.innerHTML = servicesData.map((s, i) => `
                     <button onclick="updateService(${i})" class="group flex items-center p-6 text-left transition-all duration-300 border-l-2 ${i === activeServiceIdx ? 'bg-white shadow-lg border-leocyte-blue transform translate-x-2' : 'border-transparent hover:bg-slate-50 text-slate-500'}">
                         <i data-lucide="${s.icon}" class="mr-4 w-6 h-6 ${i === activeServiceIdx ? 'text-leocyte-blue' : 'text-slate-400'}"></i>
@@ -525,7 +565,6 @@
                     </button>
                 `).join('');
 
-                // Render Subnav & Case Study
                 subnavContainer.innerHTML = `
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Key Domains</h4>
                     <ul class="space-y-1 mb-12">
@@ -534,13 +573,12 @@
                         `).join('')}
                     </ul>
                     <div class="p-5 bg-slate-900 text-white rounded-lg shadow-md">
-                        <div class="text-xs font-bold text-leocyte-blue uppercase tracking-widest mb-2">Case Study</div>
+                        <div class="text-xs font-bold text-leocyte-blue uppercase tracking-widest mb-2">Relevant Case Study</div>
                         <h5 class="font-serif font-bold text-lg mb-2 leading-tight">${activeService.caseStudy.title}</h5>
                         <p class="text-xs text-slate-400 mb-4 leading-relaxed">${activeService.caseStudy.summary}</p>
                     </div>
                 `;
 
-                // Render Content
                 const activeContent = activeService.subPages[activeSubIdx];
                 contentContainer.innerHTML = `
                     <div class="mb-2"><span class="text-leocyte-blue font-bold text-sm tracking-wide">${activeService.title}</span></div>
@@ -557,6 +595,82 @@
             window.updateSub = (i) => { activeSubIdx = i; render(); };
             render();
         }
+
+        function initExperts() {
+            const container = document.getElementById('experts-grid');
+            container.innerHTML = expertsData.map((ex, i) => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-shadow animate-float" style="animation-delay: ${i * 1}s;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="${ex.image}" alt="${ex.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 class="text-xl font-bold font-serif">${ex.name}</h3>
+                            <p class="text-sm opacity-90">${ex.role}</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            ${ex.tags.map(tag => `<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded">${tag}</span>`).join('')}
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">${ex.shortBio}</p>
+                        <button onclick="openBio(${i})" class="text-leocyte-blue text-sm font-bold hover:underline">Read Full Bio</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function initInsights() {
+            const container = document.getElementById('insights-grid');
+            container.innerHTML = insightsData.map(insight => `
+                 <a href="${insight.fileUrl}" target="_blank" class="group bg-white/5 border border-white/10 p-6 rounded hover:bg-white/10 transition-all cursor-pointer block">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-leocyte-blue uppercase tracking-wider">${insight.topic}</span>
+                        <i data-lucide="download" class="w-4 h-4 text-slate-500 group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-semibold mb-2 group-hover:text-leocyte-blue transition-colors">${insight.title}</h4>
+                    <div class="flex items-center text-xs text-slate-500 mt-4">
+                        <span class="bg-white/10 px-2 py-1 rounded">${insight.type}</span>
+                    </div>
+                </a>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // --- MODAL LOGIC ---
+        const modal = document.getElementById('bio-modal');
+        const modalContent = document.getElementById('bio-content');
+        
+        window.openBio = (i) => {
+            const ex = expertsData[i];
+            modalContent.innerHTML = `
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <img src="${ex.image}" class="w-full rounded-lg shadow-lg mb-4">
+                        <h3 class="text-2xl font-bold font-serif text-leocyte-dark">${ex.name}</h3>
+                        <p class="text-sm text-slate-500 mb-2">${ex.role}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${ex.tags.map(tag => `<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h4 class="text-lg font-bold text-leocyte-blue mb-4">Biography</h4>
+                        <p class="text-slate-600 leading-relaxed text-lg">${ex.fullBio}</p>
+                         <div class="mt-8 pt-6 border-t border-slate-100">
+                            <a href="mailto:ab@leocyte.com?subject=Connect with ${ex.name}" class="inline-flex items-center text-leocyte-dark font-bold hover:text-leocyte-blue">
+                                Connect with ${ex.name.split(' ')[0]} <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('open', 'opacity-100');
+        };
+        
+        window.closeBio = () => {
+            modal.classList.add('pointer-events-none', 'opacity-0');
+            modal.classList.remove('open', 'opacity-100');
+        };
 
         // --- NAVBAR LOGIC ---
         function initNavbar() {
